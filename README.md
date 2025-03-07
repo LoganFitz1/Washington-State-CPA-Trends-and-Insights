@@ -72,7 +72,7 @@ The files provided directly via the US Department of Education (see listing abov
 
 ## Directions on How to Use GitHub Web Editor
 
-Are you logged into github? Just press the period key right now. This will load the web editor. Then install the Malloy extension. Feel free to explore, experiment, and learn more about Peace Corps Volunteers!
+Are you logged into github? Just press the period key right now. This will load the web editor. Then install the Malloy extension. Feel free to explore, experiment, and learn more about Washington State CPAs!
 See images below for direction references:
 | **Step**   | **Image Preview** |
 |--------|-----------|
