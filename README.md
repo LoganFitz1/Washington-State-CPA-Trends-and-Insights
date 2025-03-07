@@ -16,7 +16,7 @@ Links to Data Sources:
 [Washington State Certified Public Accountants Dataset](https://data.wa.gov/Consumer-Protection/Washington-State-Certified-Public-Accountants/6du3-3h9e/about_data)
 
 
-[Link to My Project Repository](https:)
+[Link to My Project Repository](https://github.com/LoganFitz1/Washington-State-CPA-Trends-and-Insights.git)
 
 
 ## Data Cleaning Process
@@ -42,13 +42,13 @@ California has the most current WA CPAs (730 total) living outside of WA but wit
 
 Japan has more Washington CPAs than any U.S. state outside of Washington combined. I found this discovery interesting as it underscores the demand for accounting expertise in commerce between the U.S. and Japan, the lack of residency requirements for Washington CPAs, and the prestige of a Washington license over other states (Query 4)
 
-<img src="WA CPAs Living Outside of WA.png" alt=" ToolTip, Bar-chart: WA CPAs Living Outside of WA [Query 4]" width="50%">
+<img src="WA CPAs Living Outside of WA.png" alt=" ToolTip, Bar-chart: WA CPAs Living Outside of WA [Query 4]" width="75%">
 
 Washington resident CPAs face a 0.37% suspension rate and a 0.07% license revocation rate. (Query 7)
 
 Even though Japan has the highest number of WA CPAs outside of Washington, the UAE, China, other US States, and Canada all have higher suspension rates—suggesting that Japanese accountants may adapt better to American accounting standards. (Query 9)
 
-<img src="Nonresident CPA Suspensions by Country.png" alt=" Data Table: Nonresident CPA Suspensions by Country [Query 9]" width="50%">
+<img src="Nonresident CPA Suspensions by Country.png" alt=" Data Table: Nonresident CPA Suspensions by Country [Query 9]" width="45%">
 
 
 93.65% of WA resident CPAs renew their CPA license at least once. (Query 11)
@@ -58,12 +58,10 @@ Even though Japan has the highest number of WA CPAs outside of Washington, the U
 
 Since 2010 there has been a major increase in non-CPA CPA firm owners. This lends insight into the challenge of the CPA credential process and regulatory changes allowing non-CPAs to own CPA firms (Query 14)
 
+<img src="Increase in Non-CPA CPA Firm Owners.png" alt=" Line-chart: Increase in Non-CPA CPA Firm Owners [Query 14]" width="50%">
 
-<img src="Increase in Non-CPA CPA Firm Owners" alt=" Line-chart: Increase in Non-CPA CPA Firm Owners [Query 14]" width="50%">
 
 
-The average WA CPA career length is 15.2 years, and the longest-serving WA CPA is a gentleman named Delmar Pearson, who maintained his license for 69.8 years. A wonderful aspect of working with Malloy is the opportunity to make discoveries you might never have expected, and Delmar Pearson is a perfect example of this. Upon learning of this extraordinary accomplishment, I researched Mr. Delmar Pearson and discovered his beautifully written obituary. Delmar was a veteran and family man, lived to be 99 years old, and holds the record for the longest maintained CPA in WA history. Delmar represents a hero in the accounting community, and I hope his story is not soon forgotten. More on Delmar can be found 
+The average WA CPA career length is 15.2 years, and the longest-serving WA CPA is a gentleman named Delmar Pearson, who maintained his license for 69.8 years. A wonderful aspect of working with Malloy is the opportunity to make discoveries you might never have expected, and Delmar Pearson is a perfect example of this. Upon learning of this extraordinary accomplishment, I researched Mr. Delmar Pearson and discovered his beautifully written obituary. Delmar was a veteran and family man, lived to be 99 years old, and holds the record for the longest maintained CPA in WA history. Delmar represents a hero in the accounting community, and I hope his story will not be forgotten soon. More on Delmar can be found [here](https://www.legacy.com/us/obituaries/legacyremembers/delmar-pearson-obituary?id=9019091) (Query 6)
 
-<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="50%">
-
-[here](https://www.legacy.com/us/obituaries/legacyremembers/delmar-pearson-obituary?id=9019091) (Query 6)
+<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="85%">
