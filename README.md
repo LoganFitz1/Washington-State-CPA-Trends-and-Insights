@@ -13,7 +13,7 @@ Due to privacy constraints and the way the data is organized, integrating additi
 
 Links to Data:
 [Washington State CPA Dataset](https://data.wa.gov/Consumer-Protection/Washington-State-Certified-Public-Accountants/6du3-3h9e/about_data),
-[My Repository](https://github.com/LoganFitz1/Washington-State-CPA-Trends-and-Insights.git))
+[My Repository](https://github.com/LoganFitz1/Washington-State-CPA-Trends-and-Insights.git)
 
 
 ## Data Cleaning Process
