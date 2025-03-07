@@ -59,7 +59,7 @@ The findings below are directly sourced from the WA state CPA dataset using quer
 
 - **93.65%** of WA resident CPAs renew their CPA license at least once (Query 11).
 
-- **90.76%** of non-resident CPAs renew their WA CPA license at least once (Query 12).
+- **90.76%** of non-WA resident CPAs renew their WA CPA license at least once (Query 12).
 
 
 - **Since 2010** there has been a **major increase in non-CPA CPA firm owners**. This lends insight into the challenge of the CPA credential process and regulatory changes allowing non-CPAs to own CPA firms (Query 14).
