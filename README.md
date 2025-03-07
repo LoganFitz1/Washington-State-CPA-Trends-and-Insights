@@ -29,42 +29,53 @@ Before effectively using this dataset, I first needed to perform some minor clea
 ## Summary of Findings
 The findings below are directly sourced from the WA state CPA dataset using queries I wrote to analyze the data. Insights can be used to interpret the CPA landscape in WA, offering valuable context on licensing trends, career longevity, and regulatory patterns. I encourage anyone to build upon this work using the GitHub Web Editor to expand my analysis and identify more data trends or insights. 
 
-There was a large spike in both retired CPAs and newly certified CPAs in 2002. Notably, this spike follows the major legislation changes relating to the Sarbanes-Oxley Act of 2002 in response to widespread corporate fraud and misstatements. The inverse nature of these trendlines highlights the demand for qualified CPAs and the strict SOX regulations that led many to reassess their accounting careers. [Queries 1 and 2]
+- There was a large spike in both retired CPAs and newly certified CPAs in 2002. Notably, this spike follows the major legislation changes relating to the Sarbanes-Oxley Act of 2002 in response to widespread corporate fraud and misstatements. The inverse nature of these trendlines highlights the demand for qualified CPAs and the strict SOX regulations that led many to reassess their accounting careers. (Queries 1 and 2)
 
-<img src="Newly Certified WA CPAs Over Time.png" alt=" Line-chart: Newly Certified WA CPAs Over Time [Query 1]" width="50%">
-<img src="Retired WA CPAs Over Time.png" alt=" Line-chart: Retired WA CPAs Over Time [Query 2]" width="50%">
+| **<img src="Newly Certified WA CPAs Over Time.png" alt=" Line-chart: Newly Certified WA CPAs Over Time [Query 1]" width="65%">**|**Query 1: Newly Certified WA CPAs Over Time** |
+|-------|----|
 
-Of the WA CPAs living in WA, the majority reside in Seattle (2,413 CPAs), followed by Bellevue (791 CPAs) and then Spokane (593 CPAs). [Query 5]
-
-<img src="WA Resident CPAs by City.png" alt=" Bar-chart: WA Resident CPAs by City [Query 5]" width="50%">
-
-California has the most current WA CPAs (730 total) living outside of WA but within the United States. [Query 13}
-
-Japan has more Washington CPAs than any U.S. state outside of Washington combined. I found this discovery interesting as it underscores the demand for accounting expertise in commerce between the U.S. and Japan, the lack of residency requirements for Washington CPAs, and the prestige of a Washington license over other states (Query 4)
-
-<img src="WA CPAs Living Outside of WA.png" alt=" ToolTip, Bar-chart: WA CPAs Living Outside of WA [Query 4]" width="75%">
-
-Washington resident CPAs face a 0.37% suspension rate and a 0.07% license revocation rate. (Query 7)
-
-Even though Japan has the highest number of WA CPAs outside of Washington, the UAE, China, other US States, and Canada all have higher suspension rates—suggesting that Japanese accountants may adapt better to American accounting standards. (Query 9)
-
-<img src="Nonresident CPA Suspensions by Country.png" alt=" Data Table: Nonresident CPA Suspensions by Country [Query 9]" width="45%">
+| **<img src="Retired WA CPAs Over Time.png" alt=" Line-chart: Retired WA CPAs Over Time [Query 2]" width="65%">**|**Query 2: Retired WA CPAs Over Time** |
+|-------|----|
 
 
-93.65% of WA resident CPAs renew their CPA license at least once. (Query 11)
+- Of the current CPAs living in WA State, a majority consisting of 2,413 reside in Seattle, followed by Bellevue at 791, and Spokane third at 593 CPAs. (Query 5)
 
-90.76% of non-residents renew their WA CPA license at least once. (Query 12)
-
-
-Since 2010 there has been a major increase in non-CPA CPA firm owners. This lends insight into the challenge of the CPA credential process and regulatory changes allowing non-CPAs to own CPA firms (Query 14)
-
-<img src="Increase in Non-CPA CPA Firm Owners.png" alt=" Line-chart: Increase in Non-CPA CPA Firm Owners [Query 14]" width="50%">
+| **<img src="WA Resident CPAs by City.png" alt=" Bar-chart: WA Resident CPAs by City [Query 5]" width="65%">**|**Query 5: WA Resident CPAs by City** |
+|-------|----|
 
 
+- California has the most number of current WA CPAs living outside of WA but within the United States at 730 CPAs. (Query 13)
 
-The average WA CPA career length is 15.2 years, and the longest-serving WA CPA is a gentleman named Delmar Pearson, who maintained his license for 69.8 years. A wonderful aspect of working with Malloy is the opportunity to make discoveries you might never have expected, and Delmar Pearson is a perfect example of this. Upon learning of this extraordinary accomplishment, I researched Mr. Delmar Pearson and discovered his beautifully written obituary. Delmar was a veteran and family man, lived to be 99 years old, and holds the record for the longest maintained CPA in WA history. Delmar represents a hero in the accounting community, and I hope his story will not be forgotten soon. More on Delmar can be found [here](https://www.legacy.com/us/obituaries/legacyremembers/delmar-pearson-obituary?id=9019091) (Query 6)
+- Japan has more Washington CPAs than any U.S. state outside of Washington combined. I found this discovery interesting as it underscores the demand for accounting expertise in commerce between the U.S. and Japan, the lack of residency requirements for Washington CPAs, and the prestige of a Washington license over other states (Query 4)
 
-<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="85%">
+| **<img src="WA CPAs Living Outside of WA.png" alt=" ToolTip, Bar-chart: WA CPAs Living Outside of WA [Query 4]" width="75%">**|**Query 4: WA CPAs Living Outside of WA** |
+|-------|----|
+
+
+- Washington resident CPAs face a 0.37% suspension rate and a 0.07% license revocation rate. (Query 7)
+
+- Even though Japan has the highest number of WA CPAs outside of Washington, the UAE, China, other US States, and Canada all have higher suspension rates—suggesting that Japanese accountants may adapt better to American accounting standards. (Query 9)
+
+| **<img src="Nonresident CPA Suspensions by Country.png" alt=" Data Table: Nonresident CPA Suspensions by Country [Query 9]" width="45%">**|**Query 9: Nonresident CPA Suspensions by Country** |
+|-------|----|
+
+
+- 93.65% of WA resident CPAs renew their CPA license at least once. (Query 11)
+
+- 90.76% of non-residents renew their WA CPA license at least once. (Query 12)
+
+
+- Since 2010 there has been a major increase in non-CPA CPA firm owners. This lends insight into the challenge of the CPA credential process and regulatory changes allowing non-CPAs to own CPA firms (Query 14)
+
+| **<img src="Increase in Non-CPA CPA Firm Owners.png" alt=" Line-chart: Increase in Non-CPA CPA Firm Owners [Query 14]" width="50%">**|**Query 14: Increase in Non-CPA CPA Firm Owners** |
+|-------|----|
+
+
+
+- The average WA CPA career length is 15.2 years, and the longest-serving WA CPA is a gentleman named Delmar Pearson, who maintained his license for 69.8 years. A wonderful aspect of working with Malloy is the opportunity to make discoveries you might never have expected, and Delmar Pearson is a perfect example of this. Upon learning of this extraordinary accomplishment, I researched Mr. Delmar Pearson and discovered his beautifully written obituary. Delmar was a veteran and family man, lived to be 99 years old, and holds the record for the longest maintained CPA in WA history. Delmar represents a hero in the accounting community, and I hope his story will not be forgotten soon. More on Delmar can be found [here](https://www.legacy.com/us/obituaries/legacyremembers/delmar-pearson-obituary?id=9019091) (Query 6)
+
+| **<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="85%">**|**Query 6: Avg CPA Career Length and Longest Serving CPA** |
+|-------|----|
 
 
 ## Licensing
