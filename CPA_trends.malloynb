@@ -18,7 +18,7 @@ source: CPA is duckdb.table('./Washington_State_Certified_Public_Accountants_202
    num_converted_cpas_current is count(`License Number`) {where: Status = 'ConvertedToCPA' and `Expiration Date`.year >= @2025} --People who transfered CPA license to WA from another state [current CPA]
    num_converted_cpas_noncurrent is count(`License Number`) {where: Status = 'ConvertedToCPA' and `Expiration Date`.year < @2025} --People who transfered CPA license to WA from another state [Noncurrent CPA]
    
-   num_lapsed_cpa is count(`License Number`) {where: Status = 'Lapsed Licensee'} -- Former CPA who did not renew licence
+   num_lapsed_cpa is count(`License Number`) {where: Status = 'Lapsed Licensee'} -- Former CPAs who did not renew licences
    num_retired_cpa is count(`License Number`) {where: Status = 'Retired Licensee'} -- Retired CPAs
    num_suspended is count(`License Number`) {where: Status = 'Suspended per Board Order'} -- CPAs who had license temporarily suspended by the WA State Board
    num_revoked is count(`License Number`) {where: Status = 'Licensed to practice Revoked per Board Order'} -- CPAs who had license revoked by the WA State Board
@@ -33,8 +33,8 @@ source: CPA is duckdb.table('./Washington_State_Certified_Public_Accountants_202
    num_lapsed_registration is count(`License Number`) {where: Status = 'Lapsed Registration'} -- Certificate holders (CPA candidades) with lapsed registeration [non-CPA]
    num_retired_certificate_holder is count(`License Number`) {where: Status = 'Retired Certificate holder'} -- Retired certificate holders (CPA candidades) [non-CPA]
    
-   num_rows is count() -- Number of people in data bases [CPAs and non-CPAs]
-   `Total Number Active CPAs` is num_current + num_converted_cpas_current -- Groups people with current and legal CPA credentials 
+   num_rows is count() -- Number of people in dataset [CPAs and non-CPAs]
+   `Total Number Active CPAs` is num_current + num_converted_cpas_current -- Groups people with current active and legal CPA credentials 
 
   view: current_by_state is {
     where: State is not null
@@ -70,7 +70,7 @@ run: CPA -> {
 
 }
 >>>markdown
-3. Based on the year an accountant first received their CPA license, what percent of these WA CPAs currently hold an active, lapsed, revoked, inactive, suspended, retired, or deceased license status?
+3. Based on the year an accountant first received their CPA license, what percent of these WA CPA graduates still hold an active license, and what percent now have a lapsed, revoked, inactive, suspended, retired, or deceased license status?
 >>>malloy
 
 run: CPA -> {
@@ -112,7 +112,7 @@ run: CPA -> {
 }
 }
 >>>markdown
-5. Where do currently active Washington-resident CPAs live? Are they mainly in large metro areas or spread out?
+5. Where do active Washington-resident CPAs live? Are they mainly in large metro areas or spread out?
 >>>malloy
 # bar_chart
 run: CPA -> {
@@ -155,7 +155,7 @@ run: CPA -> {
 run: CPA -> Legal_trouble + {
    }
 >>>markdown
-9. How frequently do WA CPAs living in other states or counties cause problems? Of these countries, which have the highest rate of suspension?
+9. How frequently do WA CPAs living in other states or counties face regulatory issues? Of these countries, which have the highest rate of suspension?
 >>>malloy
  
 run: CPA -> {
@@ -204,13 +204,13 @@ run: CPA -> {
 
 }
 >>>markdown
-13. Using a view, what is the number of currently active WA CPAs by state of residence?
+13. Using a view, what is the number of active WA CPAs by state of residence?
 >>>malloy
 run: CPA -> current_by_state + {
 
 }
 >>>markdown
-14. What is the growth or decline of new, non-CPA, WA CPA firm owners by year?
+14. Has there been a growth or decline of new, non-CPA, WA CPA firm owners?
 >>>malloy
 # line_chart
 run: CPA -> {
