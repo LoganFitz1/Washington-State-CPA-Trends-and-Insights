@@ -1,0 +1,239 @@
+>>>malloy
+
+source: CPA is duckdb.table('./Washington_State_Certified_Public_Accountants_20250302.csv') extend {
+  dimension:
+  norm_city is concat(upper(City)) -- Fixes the difference between "Seattle" and "SEATTLE" for records of different periods
+  Days_service is day(`Original Issue Date` to`Expiration Date`) -- Number of days a person maintains their CPA
+  YRS_Service is Days_service/365 -- Number of years a person maintains their CPA
+
+   measure:
+   Suspension_rate is num_suspended/CPAsIN_DATABASE -- Suspension Rate
+   Revocation_rate is num_revoked/CPAsIN_DATABASE -- Revocation Rate
+   Renewal_rate is num_renewed_CPA/CPAsIN_DATABASE -- Renewal Rate
+   
+
+   num_current is count(`License Number`) {where: Status = 'Licensed to practice public accounting'} -- Current/Active CPAs
+   
+   num_converted_cpas_total is count(`License Number`) {where: Status = 'ConvertedToCPA'} --People who transfered CPA license to WA from another state Total 
+   num_converted_cpas_current is count(`License Number`) {where: Status = 'ConvertedToCPA' and `Expiration Date`.year >= @2025} --People who transfered CPA license to WA from another state [current CPA]
+   num_converted_cpas_noncurrent is count(`License Number`) {where: Status = 'ConvertedToCPA' and `Expiration Date`.year < @2025} --People who transfered CPA license to WA from another state [Noncurrent CPA]
+   
+   num_lapsed_cpa is count(`License Number`) {where: Status = 'Lapsed Licensee'} -- Former CPA who did not renew licence
+   num_retired_cpa is count(`License Number`) {where: Status = 'Retired Licensee'} -- Retired CPAs
+   num_suspended is count(`License Number`) {where: Status = 'Suspended per Board Order'} -- CPAs who had license temporarily suspended by the WA State Board
+   num_revoked is count(`License Number`) {where: Status = 'Licensed to practice Revoked per Board Order'} -- CPAs who had license revoked by the WA State Board
+   num_inactive is count(`License Number`) {where: Status = 'Holds a CPA License in an Inactive status (not licensed to practice as a CPA)'} -- CPAs ineligible to practice public accounting [non-current CPA]
+   num_deceased_cpa is count(`License Number`) {where: Status = 'Deceased'} -- CPAs who have passed away [non-current CPA]
+   CPAsIN_DATABASE is count() {where: Status = 'Licensed to practice public accounting'|'ConvertedToCPA'|'Lapsed Licensee'|'Retired Licensee'|'Suspended per Board Order'|'Licensed to practice Revoked per Board Order'|'Holds a CPA License in an Inactive status (not licensed to practice as a CPA)'|'Deceased'} -- This is everyone who is or once was a legal CPA
+   num_renewed_CPA is count(`License Number`) {where: Days_service >= 1096 and Status = 'Licensed to practice public accounting'|'ConvertedToCPA'|'Lapsed Licensee'|'Retired Licensee'|'Suspended per Board Order'|'Licensed to practice Revoked per Board Order'|'Holds a CPA License in an Inactive status (not licensed to practice as a CPA)'|'Deceased'} -- CPAs who have renewed CPA license at least once
+   
+   num_non_cpa_owner is count(`License Number`){where: Status = 'A non-CPA who is registered as an owner in a Washington CPA firm; may not use the title CPA'} -- Non-CPAs who own a CPA firm in Washington state, "non-licensee firm owner" [non-CPA]
+   
+   num_lapsed_Certificateholder is count(`License Number`) {where: Status = 'Lapsed Certificateholder'} -- Certificate holders are CPA candidates who have met the education and exam requirements but are not yet fully licensed. [non-CPA]
+   num_lapsed_registration is count(`License Number`) {where: Status = 'Lapsed Registration'} -- Certificate holders (CPA candidades) with lapsed registeration [non-CPA]
+   num_retired_certificate_holder is count(`License Number`) {where: Status = 'Retired Certificate holder'} -- Retired certificate holders (CPA candidades) [non-CPA]
+   
+   num_rows is count() -- Number of people in data bases [CPAs and non-CPAs]
+   `Total Number Active CPAs` is num_current + num_converted_cpas_current -- Groups people with current and legal CPA credentials 
+
+  view: current_by_state is {
+    where: State is not null
+    group_by: State
+    aggregate: `Total Number Active CPAs`
+  }
+  view: Legal_trouble is {
+    where: State is not null
+    group_by: State
+    aggregate: num_suspended, num_revoked
+  }
+
+
+}
+>>>markdown
+1. What is the trend of newly certified CPAs over time in WA State?
+>>>malloy
+# line_chart
+run: CPA -> {
+    where: State = 'WA' and `Original Issue Date`.year <= @2024
+    group_by: `Original Issue Date`.year
+    aggregate: CPAsIN_DATABASE   
+
+}
+>>>markdown
+2. What is the trend in retired WA CPAs over time?
+>>>malloy
+# line_chart
+run: CPA -> {
+    where: State = 'WA' and `Original Issue Date`.year <= @2024
+    group_by: `Original Issue Date`.year
+    aggregate: num_retired_cpa
+
+}
+>>>markdown
+3. Based on the year an accountant first received their CPA license, what percent of these WA CPAs currently hold an active, lapsed, revoked, inactive, suspended, retired, or deceased license status?
+>>>malloy
+
+run: CPA -> {
+  where: 
+    State = 'WA' 
+    and Status != ('Retired Certificate holder'|'Lapsed Registration'|'Lapsed Certificateholder'|'A non-CPA who is registered as an owner in a Washington CPA firm; may not use the title CPA')  -- Exclude non-licensed CPAs
+    and `Original Issue Date`.year <= @2024
+  group_by: `Original Issue Date`.year
+  aggregate: `Licenses distributed` is num_rows
+  
+  nest: `CPA Status Breakdown by Year` is{
+    
+# percent
+  aggregate:
+    percent_active is (num_current / num_rows),
+    percent_lapsed is (num_lapsed_cpa / num_rows),
+    percent_revoked is (num_revoked / num_rows),
+    percent_inactive is (num_inactive / num_rows),
+    percent_suspended is (num_suspended / num_rows),
+    percent_retired is (num_retired_cpa / num_rows),
+    percent_deceased is (num_deceased_cpa / num_rows)
+  }
+}
+>>>markdown
+4. Many CPAs have a WA CPA license but live in another state or country. Where do these people live, and how many WA CPAs live there?
+>>>malloy
+
+run: CPA -> {
+    aggregate: `Total Number Active CPAs`
+    where: State != 'WA' 
+    group_by: Country
+    # bar_chart
+    nest: `By City` is {
+         # tooltip
+        group_by: Country
+        aggregate: `Total Number Active CPAs`
+        group_by: norm_city
+        Limit: 10
+}
+}
+>>>markdown
+5. Where do currently active Washington-resident CPAs live? Are they mainly in large metro areas or spread out?
+>>>malloy
+# bar_chart
+run: CPA -> {
+    aggregate: `Total Number Active CPAs`
+    where: State = 'WA' 
+    group_by: norm_city
+    limit: 10
+
+}
+>>>markdown
+6. What is the average number of years a CPA license remains active before lapsing, retiring, or the CPA moves on? Who are the top 10 longest-serving CPAs?
+>>>malloy
+run: CPA -> {
+
+    where: Status = ('Licensed to practice public accounting'|'ConvertedToCPA'|'Lapsed Licensee'|'Retired Licensee'|'Suspended per Board Order'|'Licensed to practice Revoked per Board Order'|'Holds a CPA License in an Inactive status (not licensed to practice as a CPA)'|'Deceased')
+    aggregate: 
+    AVG_years is avg(Days_service)/365
+    AVG_days is avg(Days_service)
+
+    nest: `Top 10 longest serving CPAs` is {
+        select: `First Name`, `Middle Name`, `Last Name`, Days_service,YRS_Service `License Number`,`Original Issue Date`, `Expiration Date`, norm_city
+        order_by: Days_service desc
+        limit: 10
+        
+}
+}
+>>>markdown
+7. How frequently do Washington-resident CPAs have their license suspended or revoked?
+>>>malloy
+
+run: CPA -> {
+    # percent
+    aggregate:
+    Suspension_rate is num_suspended/CPAsIN_DATABASE
+    Revocation_rate is num_revoked/CPAsIN_DATABASE
+}
+>>>markdown
+8. Using a view, find the number of CPAs with legal trouble by state.
+>>>malloy
+run: CPA -> Legal_trouble + {
+   }
+>>>markdown
+9. How frequently do WA CPAs living in other states or counties cause problems? Of these countries, which have the highest rate of suspension?
+>>>malloy
+ 
+run: CPA -> {
+    where: Country != 'Cyprus'|'Uganda'|'Guatemala'|'Antigua and Barbuda'|'Nigeria'|'Romania'
+    group_by: Country
+    aggregate:
+    # percent
+    Suspension_rate
+    # percent
+    Revocation_rate
+    order_by: Suspension_rate desc, Revocation_rate desc
+    Limit: 100
+}
+>>>markdown
+10. Accountants must renew their CPA license every 3 years to continue practicing. What is the renewal rate for Washington-resident CPAs each year? 
+
+    Note: Data from 2022 onward is excluded. This ensures only CPAs who have reached their three-year renewal period are considered.
+>>>malloy
+
+run: CPA -> {
+    where: State = 'WA' and `Original Issue Date`.year <= @2021
+    group_by: `Original Issue Date`.year
+    aggregate: 
+    # percent
+    Renewal_rate is num_renewed_CPA/CPAsIN_DATABASE
+
+}
+>>>markdown
+11. What is the overall average renewal rate for WA resident CPAs?
+>>>malloy
+run: CPA -> { 
+    where: State = 'WA'and`Original Issue Date`.year <= @2021
+    aggregate: 
+    # percent
+    Avg_renewal_resident_rate is num_renewed_CPA/CPAsIN_DATABASE
+
+}
+>>>markdown
+12. What is the overall average renewal rate for non-WA resident CPAs?
+>>>malloy
+run: CPA -> { 
+    where: State != 'WA' and `Original Issue Date`.year <= @2021
+    aggregate: 
+    # percent
+    Avg_renewal_nonresident_rate is num_renewed_CPA/CPAsIN_DATABASE
+
+}
+>>>markdown
+13. Using a view, what is the number of currently active WA CPAs by state of residence?
+>>>malloy
+run: CPA -> current_by_state + {
+
+}
+>>>markdown
+14. What is the growth or decline of new, non-CPA, WA CPA firm owners by year?
+>>>malloy
+# line_chart
+run: CPA -> {
+  where: `Original Issue Date`.year <= @2024
+  group_by: `Original Issue Date`.year
+  aggregate:
+    num_non_cpa_owner
+}
+>>>markdown
+15. Visualize countries with WA State CPAs who are non-Washington residents.
+>>>malloy
+# bar_chart 
+run: CPA -> {
+    aggregate: `Total Number Active CPAs`
+    where: State != 'WA' 
+    group_by: Country
+    Limit: 10
+}
+>>>markdown
+16. When did my tax accountant get his CPA license?
+>>>malloy
+run: CPA -> current_by_state + {
+    where: City = 'Edmonds' and `Last Name` = 'Loughrin'
+    group_by: `First Name`, `Last Name`, `License Number`,`Original Issue Date`
+
+}
