@@ -43,7 +43,7 @@ The findings below are directly sourced from the WA state CPA dataset using quer
 
 - California has the most number of current WA CPAs living outside of WA but within the United States **at 730 CPAs** (Query 13).
 
-- **Japan has more Washington CPAs than any U.S. state outside of Washington combined**. I found this discovery interesting as it underscores the demand for accounting expertise in commerce between the U.S. and Japan, the lack of residency requirements for Washington CPAs, and the prestige of a Washington license over other states (Query 4).
+- **Japan has more Washington CPAs than any other U.S. state outside of Washington combined**. I found this discovery interesting as it underscores the demand for accounting expertise in commerce between the U.S. and Japan, the lack of residency requirements for Washington CPAs, and the prestige of a Washington license over other states (Query 4).
 
 | **<img src="WA CPAs Living Outside of WA.png" alt=" ToolTip, Bar-chart: WA CPAs Living Outside of WA [Query 4]" width="85%">**|**Query 4: WA CPAs Living Outside of WA** |
 |-------|----|
