@@ -1,7 +1,7 @@
 ## Motivation for Analysis
 The official Washington State open data portal provides datasets on various topics, including professional licensing, business registrations, government operations, and economic trends. The Washington State Certified Public Accountants dataset lists individuals who hold WA CPA credentials, have held WA CPA credentials, or are WA CPA candidates. While primarily used for credential verification and disciplinary tracking, this data offers deeper insights into CPA demographics, renewal rates, career longevity, and industry trends. Understanding licensing patterns such as how long CPAs maintain their credentials, what groups of people receive the most board violations, or where nonresident WA CPAs are based would provide valuable insights for policymakers, firms, and future accountants.
 
-Informative links:
+Informative link:
 [Washington State Open Data Portal](https://data.wa.gov/)
 
 
@@ -11,12 +11,9 @@ This dataset, originally published by the Washington State Board of Accountancy,
 
 Due to privacy constraints and the way the data is organized, integrating additional datasets proved challenging; CPA license numbers would be the most reliable way to connect datasets, but this information is rarely made publicly available. As a result, this analysis primarily focuses on insights directly taken from this verified dataset. Additional analysis can build off of my work by requesting CPA Firm or business registration data, including the license numbers of all CPAs, to establish even deeper insights into accounting career paths, firm affiliations, industry concentrations, and potential correlations between firm size and rate of CPA disciplinary action. For example, many Washington CPAs live in Japan; if we could obtain firm data from Japanese accounting firms, we could analyze which types of accountants require an American CPA license and compare the presence of American CPAs in Japanese "Big 4" firms versus smaller independent firms with less international presence.   
 
-Links to Data Sources:
-
-[Washington State Certified Public Accountants Dataset](https://data.wa.gov/Consumer-Protection/Washington-State-Certified-Public-Accountants/6du3-3h9e/about_data)
-
-
-[Link to My Project Repository](https://github.com/LoganFitz1/Washington-State-CPA-Trends-and-Insights.git)
+Links to Data:
+[Washington State CPA Dataset](https://data.wa.gov/Consumer-Protection/Washington-State-Certified-Public-Accountants/6du3-3h9e/about_data),
+[My Repository](https://github.com/LoganFitz1/Washington-State-CPA-Trends-and-Insights.git)
 
 
 ## Data Cleaning Process
@@ -74,7 +71,7 @@ The findings below are directly sourced from the WA state CPA dataset using quer
 
 - The average WA CPA career length is 15.2 years, and the longest-serving WA CPA is a gentleman named Delmar Pearson, who maintained his license for 69.8 years. A wonderful aspect of working with Malloy is the opportunity to make discoveries you might never have expected, and Delmar Pearson is a perfect example of this. Upon learning of this extraordinary accomplishment, I researched Mr. Delmar Pearson and discovered his beautifully written obituary. Delmar was a veteran and family man, lived to be 99 years old, and holds the record for the longest maintained CPA in WA history. Delmar represents a hero in the accounting community, and I hope his story will not be forgotten soon. More on Delmar can be found [here](https://www.legacy.com/us/obituaries/legacyremembers/delmar-pearson-obituary?id=9019091) (Query 6).
 
-| **<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="95%">**|**Query 6: Avg CPA Career Length and Longest Serving CPA** |
+| **<img src="Avg CPA Career Length and Longest Serving CPA.png" alt=" Data Table: Avg CPA Career Length and Longest Serving CPA [Query 6]" width="115%">**|**Query 6: Avg CPA Career Length and Longest Serving CPA** |
 |-------|----|
 
 
