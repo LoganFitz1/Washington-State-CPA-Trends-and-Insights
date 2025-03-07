@@ -35,7 +35,7 @@ The findings below are directly sourced from the WA state CPA dataset using quer
 |-------|----|
 
 
-- Of the current CPAs living in WA State, **a majority consisting of 2,413 reside in Seattle**, followed by **Bellevue at 791**, and **Spokane third at 593 CPAs** (Query 5).
+- Of the current CPAs living in WA State, **a majority consisting of 2,413 reside in Seattle**, followed by **Bellevue at 791**, and **Spokane third at 593 CPAs**. The grouping of resident CPAs is primarily concentrated in large metro areas, highlighting the connection between business commerce and accounting needs (Query 5).
 
 | **<img src="WA Resident CPAs by City.png" alt=" Bar-chart: WA Resident CPAs by City [Query 5]" width="55%">**|**Query 5: WA Resident CPAs by City** |
 |-------|----|
