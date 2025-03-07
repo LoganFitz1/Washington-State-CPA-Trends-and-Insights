@@ -1,5 +1,5 @@
 ## Motivation for Analysis
-The official Washington State open data portal provides datasets on various topics, including professional licensing, business registrations, government operations, and economic trends. The Washington State CPA dataset lists individuals who hold WA CPA credentials, have held WA CPA credentials, or are WA CPA candidates. While primarily used for credential verification and disciplinary tracking, this data offers deeper insights into CPA demographics, renewal rates, career longevity, and industry trends. Understanding licensing patterns such as how long CPAs maintain their credentials, what groups of people receive board violations, or where nonresident WA CPAs live, would provide valuable insights for policymakers, firms, and future accountants.
+The official Washington State open data portal provides datasets on various topics, including professional licensing, business registrations, government operations, and economic trends. The Washington State CPA dataset lists individuals who hold WA CPA credentials, have held WA CPA credentials, or are WA CPA candidates. While primarily used for credential verification and disciplinary tracking, this data offers deeper insights into CPA demographics, renewal rates, career longevity, and industry trends. Understanding licensing patterns, such as how long CPAs maintain their credentials, what groups of people receive board violations, or where nonresident WA CPAs live, would provide valuable insights for policymakers, firms, and future accountants.
 
 Informative link:
 [Washington State Open Data Portal](https://data.wa.gov/)
@@ -80,7 +80,7 @@ The CSV file was sourced from the Washington State open data portal and is avail
 
 ## Directions on How to Use GitHub Web Editor
 
-Are you logged into github? Just press the period key right now. This will load the web editor. Then install the Malloy extension. Feel free to explore, experiment, and learn more about Washington State CPAs!
+Are you logged into GitHub? Just press the period key right now. This will load the web editor. Then install the Malloy extension. Feel free to explore, experiment, and learn more about Washington State CPAs!
 See images below for direction references:
 | **Step**   | **Image Preview** |
 |--------|-----------|
